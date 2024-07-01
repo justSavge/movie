@@ -1,4 +1,5 @@
-项目:电影评分<br/>
+项目: <a href="https://lijun-movie.netlify.app/" target="_blank">电影评分</a>
+<br/>
 技术栈:react + redux + styled-components<br/>
 - 负责使用React和Redux构建了本项目，提高了应用的性能和可维护性。<br/>
 - 设计实现了多个自定义Hook,如useFetchMovie(用于封装对后端的请求)和useLocalStorage(用于处理将state与localStorage绑定，修改state即修改本地储存)，有效抽象了共用逻辑，减少了代码冗余。<br/>
@@ -6,10 +7,14 @@
 - 使用styled-components处理了样式逻辑。<br/>
 <br/>
 问题记录：<br/>
-重复点击点击搜索结果报错。<br/>
-原因：在reducer中函数使用return state.selectedId = "";在redux使用中修改了原state，直接赋值或返回新值是不同的<br/>
+1.重复点击点击搜索结果报错。<br/>
+ 原因：在reducer中函数使用return state.selectedId = "";在redux使用中修改了原state，直接赋 值或返回新值是不同的<br/>
 处理：修改为state.selectedId = "";return;<br/>
+2.上线以后发现无法使用api。<br/>
+ 原因：不支持对http协议的访问<br/>
+ 处理：还好api有https版本，直接修改api即可<br/>
 <br/>
+已上线于：https://lijun-movie.netlify.app/<br/>
 <br/>
 本项目为爱看电影的朋友提供了以下功能<br/>
 1.搜索电影(通过自定义hook,useFetchMovie实现,一旦query(搜索值)更新，就会立刻执行获取数据)<br/>
@@ -18,4 +23,4 @@
 4.可以生成清单，分享给好友，提供分享，导入功能(分享：通过对本地值转化为json格式，复制到剪切板，导入：异步获取剪切板数据，将导出的json转化为数组，使用useLocalStorage传入本地)<br/>
 计划使用redux提供ui-state管理<br/>
 计划使用localstarge实现保存评分功能，注：本网站暂时无后端，使用免费api<br/>
-计划使用netlify托管网站，实现上线。
+计划使用netlify托管网站，实现上线。<br/>

@@ -43,15 +43,17 @@ export default function App() {
         <NavbarResult />
       </Navbar>
       <Main>
-        {query&&<Box>
-          {movies.length ? (
-            <LeftList />
-          ) : err ? (
-            <ErrorMessage />
-          ) : (
-            query && <Loading />
-          )}
-        </Box>}
+        {query && (
+          <Box>
+            {movies.length ? (
+              <LeftList />
+            ) : err ? (
+              <ErrorMessage />
+            ) : (
+              query && <Loading />
+            )}
+          </Box>
+        )}
         <Box>
           {selectedId ? (
             <MovieDetail
@@ -65,10 +67,16 @@ export default function App() {
             </>
           )}
         </Box>
-        {watched.length ? <ShareButton />:<ImportButton onWatchedMovies={hanleWatchedMovies}/>}
+        {watched.length ? (
+          <ShareButton />
+        ) : (
+          <ImportButton onWatchedMovies={hanleWatchedMovies} />
+        )}
       </Main>
 
-      {isShowWindow&&<Window watched={watched} onWatchedMovies={hanleWatchedMovies} />}
+      {isShowWindow && (
+        <Window watched={watched} onWatchedMovies={hanleWatchedMovies} />
+      )}
     </>
   );
 }

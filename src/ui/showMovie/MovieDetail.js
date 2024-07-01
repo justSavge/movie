@@ -28,7 +28,7 @@ export default function MovieDetail({ onWatchedMovies, watched }) {
     function () {
       async function getCurrentMovie() {
         const res = await fetch(
-          `http://www.omdbapi.com/?apikey=${key}&i=${selectedId}`
+          `https://www.omdbapi.com/?apikey=${key}&i=${selectedId}`
         );
         const dataJson = await res.json();
         setTheMovie(dataJson);
